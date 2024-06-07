@@ -88,7 +88,6 @@ const SalaryForm = () => {
 
   return (
     <div>
-      <Button variant="danger" onClick={handleReset}>Reset</Button>
       <div className="mb-3">
         <label htmlFor="basicSalary" className="form-label">Basic Salary</label>
         <input type="number" className="form-control" id="basicSalary" value={basicSalary} onChange={handleSalaryChange} />
@@ -108,7 +107,24 @@ const SalaryForm = () => {
         </ul>
         <Button variant="link" onClick={handleShowEarningModal} className="mt-3">+ Add New Allowance</Button>
       </div>
-     
+
+      <div className="mb-3">
+        <h5>Deductions</h5>
+        <ul className="list-group">
+          {deductions.map((deduction, index) => (
+            <li key={index} className="list-group-item d-flex justify-content-between align-items-center">
+              {deduction.name}: {deduction.amount}
+              <span>
+                <Button variant="link" onClick={() => handleEditDeduction(index)}>Edit</Button>
+                <Button variant="link" onClick={() => handleDeleteDeduction(index)}>Delete</Button>
+              </span>
+            </li>
+          ))}
+        </ul>
+        <Button variant="link" onClick={handleShowDeductionModal} className="mt-3">+ Add New Deduction</Button>
+      </div>
+
+      <Button variant="danger" onClick={handleReset}>Reset</Button>
 
       <Modal show={showEarningModal} onHide={handleCloseEarningModal}>
         <Modal.Header closeButton>
@@ -139,7 +155,31 @@ const SalaryForm = () => {
         </Modal.Footer>
       </Modal>
 
-      
+      <Modal show={showDeductionModal} onHide={handleCloseDeductionModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>{editingDeductionIndex !== null ? 'Edit Deduction' : 'Add New Deduction'}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group controlId="deductionName">
+              <Form.Label>Deduction Name</Form.Label>
+              <Form.Control type="text" value={deductionName} onChange={(e) => setDeductionName(e.target.value)} />
+            </Form.Group>
+            <Form.Group controlId="deductionAmount">
+              <Form.Label>Deduction Amount</Form.Label>
+              <Form.Control type="number" value={deductionAmount} onChange={(e) => setDeductionAmount(e.target.value)} />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseDeductionModal}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleAddDeduction}>
+            {editingDeductionIndex !== null ? 'Update' : 'Add'}
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
