@@ -89,12 +89,14 @@ const SalaryForm = () => {
     setBasicSalary('');
   };
 
+  // create number format
+  
   const formatNumber = (number) => number.toFixed(2);
 
   return (
     <div>
         <div className='d-flex justify-content-between'>
-        <label className="card-title mb-4">Calculate Salary</label>
+        <label className="card-title mb-4">Calculate Your Salary</label>
         <span  style={{ color: 'blue',fontSize: '14px' }} onClick={handleReset}>
                 <img src={img1} alt="Reset" style={{ width: '21px', height: '18px' }} /> Reset
             </span>
@@ -112,19 +114,25 @@ const SalaryForm = () => {
           {earnings.map((earning, index) => (
             <li key={index} className="list-group-item d-flex justify-content-left align-items-center">
             {earning.name}: {formatNumber(earning.amount)} {earning.epf ? <i className='fas fa-check' style={{ fontSize: '18px', color: 'blue',marginLeft: '20px' }}></i> :""}
-            {earning.epf && " (EPF/ETF)"}
+            {earning.epf && " (EPF/ETF)"} |
             <span>
-                <Button variant="link" onClick={() => handleEditEarning(index)}>
-                    <i className='fas fa-pen' style={{ fontSize: '16px', color: 'black' }}></i>
-                </Button>
+            <Button variant="link" onClick={() => handleEditEarning(index)}>
+  <span style={{ backgroundColor: ' rgba(117, 117, 117, 0.1)', padding: '6px', borderRadius: '50%' }}>
+    <i className='fas fa-pen' style={{ fontSize: '16px', color: 'black' }}></i>
+  </span>
+</Button>
+
                 <Button variant="link" onClick={() => handleDeleteEarning(index)}>
-                    <i className="fas fa-times" style={{ fontSize: '12px', color: 'black' }}></i>
+                <span style={{ backgroundColor: ' rgba(117, 117, 117, 0.1)', padding: '6px', borderRadius: '50%' }}>
+                    <i className="fas fa-times" style={{ fontSize: '12px', color: 'black', height:'5px', width:'12px' }}></i>
+                    </span>
                 </Button>
+                
             </span>
         </li>
           ))}
         </ul>
-        <Button variant="link" onClick={handleShowEarningModal} style={{ fontSize: '14px', marginTop: '12px' }}>+ Add New Allowance</Button>
+        <Button variant="link" onClick={handleShowEarningModal} style={{ fontSize: '14px', marginTop: '12px', marginBottom: '30px' }}>+ Add New Allowance</Button>
       </div>
 
       <div className="mb-3">
@@ -134,12 +142,17 @@ const SalaryForm = () => {
         <ul className=" ">
           {deductions.map((deduction, index) => (
             <li key={index} className="list-group-item d-flex justify-content-left align-items-center">
-              {deduction.name}: {formatNumber(deduction.amount)}
+              {deduction.name}: {formatNumber(deduction.amount)}     |
+              
               <span>
+                
                 <Button variant="link" onClick={() => handleEditDeduction(index)}>
-                     <i className='fas fa-pen' style={{ fontSize: '16px', color: 'black' }}></i></Button>
+                <span style={{ backgroundColor: ' rgba(117, 117, 117, 0.1)', padding: '6px', borderRadius: '50%' }}>
+                     <i className='fas fa-pen' style={{ fontSize: '16px', color: 'black' }}></i></span></Button>
+
                 <Button variant="link" onClick={() => handleDeleteDeduction(index)}>
-                    <i className="fas fa-times" style={{ fontSize: '12px', color: 'black' }}></i></Button>
+                <span style={{ backgroundColor: ' rgba(117, 117, 117, 0.1)', padding: '6px', borderRadius: '50%' }}>
+                    <i className="fas fa-times" style={{ fontSize: '12px', color: 'black' }}></i></span></Button>
               </span>
             </li>
           ))}
@@ -148,6 +161,7 @@ const SalaryForm = () => {
       </div>
 
       
+       {/*  Popup window */}
 
       <Modal show={showEarningModal} onHide={handleCloseEarningModal}>
         <Modal.Header closeButton>
@@ -186,7 +200,7 @@ const SalaryForm = () => {
           <Form>
             <Form.Group controlId="deductionName">
               <Form.Label style={{ color: 'blue' }}>Deduction Name</Form.Label>
-              <Form.Control type="text" value={deductionName} placeholder="Eg : Travel" onChange={(e) => setDeductionName(e.target.value)} />
+              <Form.Control type="text" value={deductionName} placeholder="Eg : Expences" onChange={(e) => setDeductionName(e.target.value)} />
             </Form.Group>
             <Form.Group controlId="deductionAmount">
               <Form.Label style={{ color: 'blue',marginTop: '20px' }}>Deduction Amount</Form.Label>

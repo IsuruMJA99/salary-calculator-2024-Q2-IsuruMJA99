@@ -24,6 +24,7 @@
 .form-label{
     font-size: 12px; 
     color: rgba(117, 117, 117, 1);  
+   
 }
 
 .form-title{
@@ -46,4 +47,39 @@
     font-size: 16px; 
     color: rgba(0, 0, 0, 1);  
 }
+/* 
+@media screen and (max-width: 768px ) {
+    .card-body-1{
+        width: 500px;
+        height: 616px;
+        padding: 20px;
+        margin: auto;
+        margin-bottom: 30px;
+       
+        
+    }
+} */
 
+
+@media screen and (max-width: 768px) {
+    .card-body-1 {
+        width: 350px;
+        height: 616px;
+        padding: 10px;
+        margin: auto;
+        margin-bottom: 30px;
+    }
+
+    .card-body-2 {
+        width: 300px; 
+        height: 600px; 
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .form-normal-text{
+        font-size: 14px; 
+        color: rgba(0, 0, 0, 1);  
+    }
+}

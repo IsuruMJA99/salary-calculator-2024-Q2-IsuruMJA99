@@ -41,7 +41,7 @@ const SalarySummary = () => {
            border: '2px solid rgba(224, 224, 224, 1)',
            padding: '10px',
             borderRadius: '5px',
-    }}><strong>Net Salary:</strong><strong> {formatNumber (netSalary)}</strong> </p>
+    }}><strong>Net Salary(Take Home)</strong><strong> {formatNumber (netSalary)}</strong> </p>
 
       <p className="form-label ">Contribution from the Employeer</p>
       <p  className= 'd-flex justify-content-between'><span className='form-normal-text'>Employer EPF (12%)</span>{formatNumber (employerEPF)} </p>
@@ -51,20 +51,7 @@ const SalarySummary = () => {
       <p  className= 'd-flex justify-content-between'><span className='form-normal-text'>CTC (Cost to Company)</span> {formatNumber (costToCompany)}</p>
     
 
-    {/* <div className='justify-contend-end'> */}
-        {/* <p>Amount</p> */}
-        {/* <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p className='mb-4 mt-4'></p>
-        <p></p>
-        <p></p>
-        <p></p> */}
-       
-    {/* </div> */}
+    
     </div>
     </>
   );
