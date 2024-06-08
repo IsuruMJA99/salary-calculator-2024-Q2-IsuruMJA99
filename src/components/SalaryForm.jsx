@@ -3,6 +3,7 @@ import { SalaryContext } from '../contexts/SalaryContext';
 import { Button, Modal, Form } from 'react-bootstrap';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import img1 from './Icon color.png'
+import '../App.css'
 
 const SalaryForm = () => {
   const { state, dispatch } = useContext(SalaryContext);
@@ -93,20 +94,20 @@ const SalaryForm = () => {
   return (
     <div>
         <div className='d-flex justify-content-between'>
-        <h5 className="card-title">Calculate Salary</h5>
-        <span  style={{ color: 'blue' }} onClick={handleReset}>
+        <label className="card-title mb-4">Calculate Salary</label>
+        <span  style={{ color: 'blue',fontSize: '14px' }} onClick={handleReset}>
                 <img src={img1} alt="Reset" style={{ width: '21px', height: '18px' }} /> Reset
             </span>
         </div>
       <div className="mb-3">
 
-        <label htmlFor="basicSalary" className="form-label">Basic Salary</label>
+        <label htmlFor="basicSalary" className='form-title'>Basic Salary</label>
         
-        <input type="number" className="form-control" id="basicSalary" value={basicSalary} onChange={handleSalaryChange} />
+        <input type="number" className="form-control w-50" id="basicSalary" value={basicSalary} onChange={handleSalaryChange} />
       </div>
       <div className="mb-3">
-        <h5>Earnings</h5>
-        <p>Allowance, Fixed Allowance, Bonus and etc.</p>
+        <label className='form-title'>Earnings</label>
+        <p className='form-label mt-2'>Allowance, Fixed Allowance, Bonus and etc.</p>
         <ul className="">
           {earnings.map((earning, index) => (
             <li key={index} className="list-group-item d-flex justify-content-left align-items-center">
@@ -123,12 +124,13 @@ const SalaryForm = () => {
         </li>
           ))}
         </ul>
-        <Button variant="link" onClick={handleShowEarningModal} className="mt-3">+ Add New Allowance</Button>
+        <Button variant="link" onClick={handleShowEarningModal} style={{ fontSize: '14px', marginTop: '12px' }}>+ Add New Allowance</Button>
       </div>
 
       <div className="mb-3">
-        <h5>Deductions</h5>
-        <p>Salary, Advances, Loan Deducations and all</p>
+        <hr/>
+        <label className='form-title'>Deductions</label>
+        <p className='form-label mt-2'>Salary, Advances, Loan Deducations and all</p>
         <ul className=" ">
           {deductions.map((deduction, index) => (
             <li key={index} className="list-group-item d-flex justify-content-left align-items-center">
@@ -142,7 +144,7 @@ const SalaryForm = () => {
             </li>
           ))}
         </ul>
-        <Button variant="link" onClick={handleShowDeductionModal} className="mt-3">+ Add New Deduction</Button>
+        <Button variant="link" onClick={handleShowDeductionModal} style={{ fontSize: '14px', marginTop: '12px' }}>+ Add New Deduction</Button>
       </div>
 
       

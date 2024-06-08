@@ -1,0 +1,49 @@
+.card-body-1{
+    background-color: rgba(224, 224, 224, 1);
+    width: 680px;
+    height: 616px;
+    padding: 20px;
+    margin-left: -20px;
+    border: 2px solid rgba(224, 224, 224, 1);
+    border-radius:5px ;
+    
+    
+}
+
+.card-body-2{
+    width: 480px;
+    height: 616px;
+    padding: 20px;
+    margin-left: 20px;
+    border: 2px solid rgba(224, 224, 224, 1);
+    border-radius:5px ;
+    
+    
+}
+
+.form-label{
+    font-size: 12px; 
+    color: rgba(117, 117, 117, 1);  
+}
+
+.form-title{
+    font-size: 16px;  
+    font-weight: bold;
+    color: rgba(0, 0, 0, 1);
+}
+
+.card-title{
+    font-size: 20px; 
+    color: rgba(0, 0, 0, 1);
+    font-weight: bold;
+}
+
+.form-add{
+    font-size: 14px;   
+}
+
+.form-normal-text{
+    font-size: 16px; 
+    color: rgba(0, 0, 0, 1);  
+}
+

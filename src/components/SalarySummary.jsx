@@ -22,38 +22,49 @@ const SalarySummary = () => {
 
   return (
     <>
-    <h5 className="card-title mb-4">Youre salary</h5>
-    <div className='d-flex justify-content-between'>
-    <div>
-      <p><strong>Basic Salary:</strong></p>
-      <p><strong>Total Earnings:</strong></p>
-      <p><strong>Gross Earnings:</strong> </p>
-      <p><strong>Total Deductions:</strong> </p>
-      <p><strong>Employee EPF (8%):</strong> </p>
-      <p ><strong>APIT:</strong> </p>
+    <labe className="card-title ">Youre salary</labe>
+    <div >
+    
+      <div className= 'd-flex justify-content-between mt-4'>
+        <p className="form-label">Items</p>
+        <p className="form-label">Amount</p>
+      </div>
+      <p className= 'd-flex justify-content-between'><spam className='form-normal-text'>Basic Salary</spam>{formatNumber (basicSalary) }</p>
+      <p  className= 'd-flex justify-content-between'><span className='form-normal-text'>Total Earnings</span>{formatNumber  (totalEarnings)}</p>
+      <p  className= 'd-flex justify-content-between'><span className='form-normal-text'>Gross Earnings</span> {formatNumber (grossEarnings)}</p>
+      <p  className= 'd-flex justify-content-between'><span className='form-normal-text'>Total Deductions</span> {formatNumber (totalDeductions)}</p>
+      <p  className= 'd-flex justify-content-between'><span className='form-normal-text'>Employee EPF (8%)</span>{formatNumber (employeeEPF)} </p>
+      <p  className= 'd-flex justify-content-between' ><span className='form-normal-text'>APIT</span>{formatNumber (APIT)} </p>
 
-      <p className='mb-4 mt-4'><strong>Net Salary:</strong> </p>
+      <p className='d-flex justify-content-between mb-4 mt-4 '
+          style={{
+           border: '2px solid rgba(224, 224, 224, 1)',
+           padding: '10px',
+            borderRadius: '5px',
+    }}><strong>Net Salary:</strong><strong> {formatNumber (netSalary)}</strong> </p>
 
-      <p><strong>Employer EPF (12%):</strong> </p>
-      <p className='mb-4'><strong>Employer ETF (3%):</strong> </p>
+      <p className="form-label ">Contribution from the Employeer</p>
+      <p  className= 'd-flex justify-content-between'><span className='form-normal-text'>Employer EPF (12%)</span>{formatNumber (employerEPF)} </p>
+      <p className='d-flex justify-content-between mb-4'><span className='form-normal-text'>Employer ETF (3%)</span>{formatNumber (employerETF)} </p>
       
       
-      <p><strong>Cost to Company:</strong> </p>
-    </div>
+      <p  className= 'd-flex justify-content-between'><span className='form-normal-text'>CTC (Cost to Company)</span> {formatNumber (costToCompany)}</p>
+    
 
-    <div className='justify-contend-end'>
-        <p>{formatNumber (basicSalary) }</p>
-        <p>{formatNumber  (totalEarnings)}</p>
-        <p>{formatNumber (grossEarnings)}</p>
-        <p>{formatNumber (totalDeductions)}</p>
-        <p>{formatNumber (employeeEPF)}</p>
-        <p>{formatNumber (APIT)}</p>
-        <p className='mb-4 mt-4'>{formatNumber (netSalary)}</p>
-        <p>{formatNumber (employerEPF)}</p>
-        <p>{formatNumber (employerETF)}</p>
-        <p>{formatNumber (costToCompany)}</p>
+    {/* <div className='justify-contend-end'> */}
+        {/* <p>Amount</p> */}
+        {/* <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p className='mb-4 mt-4'></p>
+        <p></p>
+        <p></p>
+        <p></p> */}
        
-    </div>
+    {/* </div> */}
     </div>
     </>
   );
