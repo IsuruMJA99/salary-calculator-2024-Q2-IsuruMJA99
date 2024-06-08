@@ -32,8 +32,8 @@ const SalarySummary = () => {
       <p className= 'd-flex justify-content-between'><spam className='form-normal-text'>Basic Salary</spam>{formatNumber (basicSalary) }</p>
       <p  className= 'd-flex justify-content-between'><span className='form-normal-text'>Total Earnings</span>{formatNumber  (totalEarnings)}</p>
       <p  className= 'd-flex justify-content-between'><span className='form-normal-text'>Gross Earnings</span> {formatNumber (grossEarnings)}</p>
-      <p  className= 'd-flex justify-content-between'><span className='form-normal-text'>Total Deductions</span> {formatNumber (totalDeductions)}</p>
-      <p  className= 'd-flex justify-content-between'><span className='form-normal-text'>Employee EPF (8%)</span>{formatNumber (employeeEPF)} </p>
+      <p  className= 'd-flex justify-content-between'><span className='form-normal-text'>Gross Deductions</span> {totalDeductions !== 0 ? '-' : null}{formatNumber(totalDeductions)}</p>
+      <p  className= 'd-flex justify-content-between'><span className='form-normal-text'>Employee EPF (8%)</span>{employeeEPF !== 0 ? '-' : null}{formatNumber(employeeEPF)}</p>
       <p  className= 'd-flex justify-content-between' ><span className='form-normal-text'>APIT</span>{formatNumber (APIT)} </p>
 
       <p className='d-flex justify-content-between mb-4 mt-4 '
